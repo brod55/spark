@@ -1,11 +1,12 @@
 FROM spark-base:2.4.4
 
-COPY start-worker.sh /
+COPY spark-submit.sh /
 
-ENV SPARK_WORKER_WEBUI_PORT 8081
-ENV SPARK_WORKER_LOG /spark/logs
-ENV SPARK_MASTER "spark://spark-master:7077"
+ENV SPARK_MASTER_URL="spark://spark-master:7077"
+ENV SPARK_SUBMIT_ARGS=""
+ENV SPARK_APPLICATION_ARGS ""
+#ENV SPARK_APPLICATION_JAR_LOCATION app.jar
+#ENV SPARK_APPLICATION_MAIN_CLASS my.main.Application
+ENV SPARK_CORES="1"
 
-EXPOSE 8081
-
-CMD ["/bin/bash", "/start-worker.sh"]
+CMD ["/bin/bash", "/spark-submit.sh"]
