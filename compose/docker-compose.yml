@@ -2,11 +2,11 @@ version: "3.7"
        
 networks:
   spark-network:
-    driver: bridge
-    ipam:
-     driver: default
-     config:
-       - subnet: 10.10.0.0/16
+    # driver: bridge
+    # ipam:
+    #  driver: default
+    #  config:
+    #    - subnet: 10.10.0.0/16
 
 volumes:
   spark-apps:
